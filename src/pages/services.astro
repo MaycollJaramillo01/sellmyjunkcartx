@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTASection from '../components/CTASection.astro';
+const schema = [{ '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sellmyjunkcartx.com/' }, { '@type': 'ListItem', position: 2, name: 'Vehicles we buy', item: 'https://sellmyjunkcartx.com/services' }] }, { '@type': 'Service', name: 'Vehicle buying in Houston', serviceType: 'Purchase of used, old, damaged, wrecked and non-running vehicles', areaServed: 'Houston, Texas', provider: { '@type': 'LocalBusiness', name: 'Sell My Junk Car TX', telephone: '+1-832-622-2792' } }];
+---
+<BaseLayout title="Vehicles We Buy in Houston | Sell My Junk Car TX" description="Sell a used, old, damaged, wrecked or non-running vehicle in Houston. Learn which vehicle conditions are accepted for review." canonical="/services" image="/assets/img/tow-truck.webp" schema={schema}>
+  <PageHero eyebrow="Vehicle purchase service" title="We buy cars in hard conditions." description="Used, old, damaged and non-running vehicles can be reviewed across different years and makes." pageName="Vehicles we buy" image="/assets/img/tow-truck.webp" imageAlt="Used vehicle secured on a tow truck" />
+  <section class="section"><div class="container"><div class="section-head"><h2>Tell us what you have.</h2><p>A useful description helps the team prepare the preliminary offer and plan the inspection.</p></div><div class="service-groups">
+    <article class="service-group reveal"><h3>Used and older vehicles</h3><p>Running cars and older vehicles in a range of conditions can be considered.</p><ul><li>Different model years</li><li>Different makes</li><li>Used vehicles</li><li>Older vehicles</li></ul></article>
+    <article class="service-group reveal"><h3>Damaged vehicles</h3><p>Visible damage or accident history does not prevent you from requesting an offer.</p><ul><li>Wrecked cars</li><li>Body damage</li><li>Cosmetic damage</li><li>Accident vehicles</li></ul></article>
+    <article class="service-group reveal"><h3>Non-running vehicles</h3><p>Vehicles that do not start or have expensive mechanical problems are part of the service.</p><ul><li>Starting problems</li><li>Mechanical failure</li><li>Transmission damage</li><li>Non-running condition</li></ul></article>
+    <article class="service-group reveal"><h3>Pickup and towing</h3><p>When the vehicle does not run, towing can be arranged. It is free when the sale is completed and the vehicle is accessible.</p></article>
+  </div></div></section>
+  <section class="section section-soft"><div class="narrow prose"><h2>Accurate details matter</h2><p>The initial quote depends on the information you provide. The final offer is confirmed after the vehicle is visually and technically inspected.</p><h2>Vehicle documentation</h2><p>The seller must be the legal owner or hold valid authorization and provide the documentation required for transfer.</p></div></section>
+  <CTASection title="Know the make, model and year?" text="That is enough to start the request." />
+</BaseLayout>

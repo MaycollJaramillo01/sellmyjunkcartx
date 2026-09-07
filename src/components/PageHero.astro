@@ -1,0 +1,20 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  pageName: string;
+  image?: string;
+  imageAlt?: string;
+}
+const { eyebrow, title, description, pageName, image, imageAlt = '' } = Astro.props;
+---
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>{pageName}</span></nav>
+    <div class:list={["page-hero-grid", !image && "page-hero-text-only"]}>
+      <div>{eyebrow && <p class="eyebrow">{eyebrow}</p>}<h1>{title}</h1><p>{description}</p></div>
+      {image && <div class="page-hero-media"><img src={image} alt={imageAlt} width="900" height="700" /></div>}
+    </div>
+  </div>
+</section>

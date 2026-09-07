@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+const schema = { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Privacy Policy', url: 'https://sellmyjunkcartx.com/privacy', isPartOf: { '@type': 'WebSite', name: 'Sell My Junk Car TX', url: 'https://sellmyjunkcartx.com/' } };
+---
+<BaseLayout title="Privacy Policy | Sell My Junk Car TX" description="Read how Sell My Junk Car TX collects, uses, shares and protects vehicle sale information." canonical="/privacy" schema={schema}>
+  <PageHero title="Privacy Policy" description="How information is handled during a vehicle quote, sale, payment and pickup." pageName="Privacy Policy" />
+  <section class="section"><div class="container content-grid"><nav class="content-nav" aria-label="Policy sections"><a href="#information">Information collected</a><a href="#use">How it is used</a><a href="#sharing">Sharing and security</a><a href="#rights">Your rights</a><a href="#contact">Contact</a></nav><article class="prose">
+    <h2 id="information">Information collected</h2><h3>Vehicle information</h3><p>The company may collect make, model, year, mileage, engine condition, cosmetic damage and photographs to understand the vehicle and prepare a quote.</p><h3>Contact and location</h3><p>Full name, phone number, email and the exact vehicle location may be collected to communicate about the request and coordinate towing.</p><h3>Documentation</h3><p>A copy of the title, official identification and other documents needed to formalize the sale may be requested.</p>
+    <h2 id="use">How the information is used</h2><p>Information is used to generate an accurate quote, coordinate towing, verify that the vehicle can be legally sold, process and complete payment, and meet property-transfer obligations.</p>
+    <h2 id="sharing">Sharing and security</h2><p>The company states that it uses technical measures to protect information and does not sell or rent personal information to third parties for advertising. Information may be shared with authorities when required by law.</p>
+    <h2>Payment information</h2><p>The payment methods described are cash, transfer and check. Payment is completed after the vehicle documentation is verified and the transfer is signed.</p>
+    <h2 id="rights">Your rights</h2><p>You may request access to or correction of your information. You may also request deletion after the legal transaction has been completed, subject to records that must be retained.</p>
+    <h2 id="contact">Privacy contact</h2><p>Send privacy requests to <a href="mailto:Cashforcartx@gmail.com">Cashforcartx@gmail.com</a>.</p>
+  </article></div></section>
+</BaseLayout>

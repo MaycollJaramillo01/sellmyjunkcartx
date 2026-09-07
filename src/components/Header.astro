@@ -1,0 +1,29 @@
+---
+interface Props { currentPath: string }
+const { currentPath } = Astro.props;
+const links = [
+  ['/how-it-works', 'How it works'],
+  ['/services', 'Vehicles we buy'],
+  ['/areas', 'Areas served'],
+  ['/about', 'About'],
+  ['/faq', 'FAQ']
+];
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Sell My Junk Car TX home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+      <span class="brand-copy"><strong>Sell My Junk Car</strong><small>Houston, Texas</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Primary navigation" data-nav>
+      {links.map(([href, label]) => <a href={href} aria-current={currentPath === href ? 'page' : undefined}>{label}</a>)}
+    </nav>
+    <div class="header-actions">
+      <a class="phone-link" href="tel:+18326222792" data-track="phone_clicked">(832) 622-2792</a>
+      <a class="button button-primary header-cta" href="/#quote">Get my offer</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation" data-menu-toggle>
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTASection from '../components/CTASection.astro';
+const questions = [
+  ['How can I sell my junk car in Houston?', 'Share the vehicle details, receive a preliminary offer, complete the inspection, confirm the final offer, sign the transfer documents, receive payment and complete pickup.'],
+  ['Do you buy cars that do not run?', 'Yes. Vehicles that do not start, have mechanical problems or have transmission damage are accepted for review.'],
+  ['Can I sell a damaged or wrecked vehicle?', 'Yes. Damaged, wrecked and accident vehicles can be considered. Describe the condition accurately so the preliminary quote is useful.'],
+  ['How quickly will I receive an offer?', 'The company states that it provides fast preliminary offers and has previously promoted a response in under 15 minutes. Actual timing can vary with the request and vehicle details.'],
+  ['Is the web or phone offer final?', 'No. It is preliminary. The final offer is confirmed after a visual and technical inspection of the vehicle.'],
+  ['How is the vehicle valued?', "The team reviews the information you provide and then verifies the vehicle's actual condition through inspection before confirming the final offer."],
+  ['What if the vehicle is different from my description?', 'The company may modify or cancel the preliminary offer when the actual condition does not match the information provided.'],
+  ['Is towing free?', 'Towing is free when the vehicle is accessible to the loading unit and the sale is completed. A seller-caused cancellation may affect free rescheduling.'],
+  ['What documents do I need?', 'You must be the legal owner or hold valid authorization and have the documentation needed to transfer the vehicle.'],
+  ['When and how do I get paid?', 'Payment is made at vehicle handover and transfer signing after documentation is verified. The stated methods are cash, transfer and check.'],
+  ['What should I remove from the car?', 'Remove personal belongings, toll tags and license plates when appropriate. The company is not responsible for personal items left inside.'],
+  ['How is my information used?', 'Vehicle, contact, location and documentation details are used to prepare a quote, coordinate towing, verify the legal sale, process payment and complete the transfer.']
+];
+const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: questions.map(([name, text]) => ({ '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text } })) };
+---
+<BaseLayout title="Junk Car Selling FAQ | Sell My Junk Car TX" description="Answers about selling a damaged or non-running car in Houston, vehicle offers, free towing, documents, inspection and payment." canonical="/faq" schema={schema}>
+  <PageHero eyebrow="Straight answers" title="Answers before the tow." description="What to expect from the offer, inspection, paperwork, payment and pickup." pageName="FAQ" />
+  <section class="section"><div class="container faq-layout"><aside class="faq-intro"><h2>Selling and offers</h2><p>These answers reflect the information and policies provided by Sell My Junk Car TX.</p><a class="button button-primary" href="/#quote">Get my offer</a></aside><div class="faq-list">{questions.map(([question, answer], index) => <details open={index === 0}><summary>{question}</summary><p>{answer}</p></details>)}</div></div></section>
+  <CTASection title="Still need a direct answer?" text="Speak with the team about your vehicle and location." />
+</BaseLayout>

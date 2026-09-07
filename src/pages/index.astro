@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTASection from '../components/CTASection.astro';
+
+const schema = [
+  { '@type': 'LocalBusiness', '@id': 'https://sellmyjunkcartx.com/#business', name: 'Sell My Junk Car TX', url: 'https://sellmyjunkcartx.com/', telephone: '+1-832-622-2792', email: 'Cashforcartx@gmail.com', image: 'https://sellmyjunkcartx.com/assets/img/hero-yard-v2.webp', areaServed: { '@type': 'City', name: 'Houston', containedInPlace: { '@type': 'State', name: 'Texas' } }, knowsAbout: ['Junk car buying', 'Used car buying', 'Damaged vehicle buying', 'Non-running vehicle buying', 'Vehicle towing'] },
+  { '@type': 'Service', '@id': 'https://sellmyjunkcartx.com/#service', name: 'Cash for cars in Houston', provider: { '@id': 'https://sellmyjunkcartx.com/#business' }, areaServed: 'Houston, Texas', serviceType: 'Purchase of used, damaged, wrecked and non-running vehicles' },
+  { '@type': 'WebSite', '@id': 'https://sellmyjunkcartx.com/#website', url: 'https://sellmyjunkcartx.com/', name: 'Sell My Junk Car TX', publisher: { '@id': 'https://sellmyjunkcartx.com/#business' } },
+  { '@type': 'FAQPage', mainEntity: [
+    { '@type': 'Question', name: 'Do you buy cars that do not run?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. The company buys vehicles that do not start and vehicles with mechanical or transmission problems.' } },
+    { '@type': 'Question', name: 'Is towing free?', acceptedAnswer: { '@type': 'Answer', text: 'Towing is free when the vehicle is accessible and the sale is completed.' } },
+    { '@type': 'Question', name: 'Is the first offer final?', acceptedAnswer: { '@type': 'Answer', text: 'No. Web and phone quotes are preliminary. The final offer is confirmed after a visual and technical inspection.' } },
+    { '@type': 'Question', name: 'When do I get paid?', acceptedAnswer: { '@type': 'Answer', text: 'Payment is made when the vehicle is delivered and the transfer documents are signed, after documentation is verified.' } }
+  ] }
+];
+---
+<BaseLayout title="Sell Your Junk Car for Cash in Houston | Sell My Junk Car TX" description="Request a fast preliminary offer for your used, damaged, wrecked or non-running vehicle in Houston. Free towing when the sale is completed." canonical="/" image="/assets/img/hero-yard-v2.webp" schema={schema}>
+  <section class="hero-yard">
+    <img class="hero-yard-image" src="/assets/img/hero-yard-v2.webp" alt="Weathered sedan secured on a flatbed tow truck in a Houston industrial yard" width="1920" height="820" fetchpriority="high" />
+    <div class="hero-yard-shade" aria-hidden="true"></div>
+    <div class="container hero-yard-inner">
+      <div class="hero-yard-copy">
+        <p class="eyebrow">Houston vehicle buyers</p>
+        <h1>Sell it.<span>Get paid.</span></h1>
+        <p class="hero-lede">Get a direct offer and pickup at your location.</p>
+        <div class="button-row">
+          <a class="button button-primary" href="#quote">Get my offer</a>
+          <a class="button button-outline" href="tel:+18326222792" data-track="phone_clicked">Call (832) 622-2792</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="condition-runway" aria-label="Vehicle conditions considered">
+    <div class="condition-runway-track">
+      <span>Non-running</span><i></i><span>Wrecked</span><i></i><span>Transmission issues</span><i></i><span>Old vehicles</span><i></i><span>Used cars</span><i></i>
+      <span aria-hidden="true">Non-running</span><i aria-hidden="true"></i><span aria-hidden="true">Wrecked</span><i aria-hidden="true"></i><span aria-hidden="true">Transmission issues</span><i aria-hidden="true"></i><span aria-hidden="true">Old vehicles</span><i aria-hidden="true"></i><span aria-hidden="true">Used cars</span><i aria-hidden="true"></i>
+    </div>
+  </div>
+
+  <QuoteForm />
+
+  <section class="section process-story">
+    <div class="container">
+      <div class="process-heading reveal">
+        <h2>Three moves.<br />No mystery.</h2>
+        <a class="button button-link" href="/how-it-works">See every detail</a>
+      </div>
+      <div class="process-stage">
+        <figure class="process-image reveal"><img src="/assets/img/process-handover-v2.webp" alt="Car key and transfer paperwork on the hood of a vehicle at a Houston tow yard" width="1200" height="1500" loading="lazy" /></figure>
+        <article class="process-action reveal"><strong>Describe</strong><p>Share the make, model, year and honest condition.</p></article>
+        <article class="process-action reveal"><strong>Confirm</strong><p>We inspect the actual vehicle and confirm the final offer.</p></article>
+        <article class="process-action process-action-accent reveal"><strong>Hand over</strong><p>Sign the transfer, receive payment and complete pickup.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section vehicle-world">
+    <div class="container">
+      <div class="vehicle-title reveal"><h2>Bad condition is<br />not a deal breaker.</h2><p>We review vehicles across years, makes and conditions.</p></div>
+      <div class="vehicle-editorial">
+        <figure class="vehicle-scene reveal"><img src="/assets/img/tow-truck.webp" alt="Vehicle loaded on a tow truck for pickup" width="800" height="1000" loading="lazy" /></figure>
+        <article class="vehicle-type type-large reveal"><h3>Does not start</h3><p>Mechanical and starting problems are accepted for review.</p></article>
+        <article class="vehicle-type reveal"><h3>Damaged</h3><p>Accident and body damage can be considered.</p></article>
+        <article class="vehicle-type type-orange reveal"><h3>Transmission</h3><p>A costly repair does not have to stay in your driveway.</p></article>
+        <article class="vehicle-type reveal"><h3>Old or used</h3><p>Different makes, model years and running conditions are reviewed.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof-band">
+    <div class="container proof-band-grid">
+      <h2 class="reveal">The practical<br />way out.</h2>
+      <div class="proof-list reveal">
+        <div><strong>Pickup at your location</strong><span>Free towing when the sale is completed and the vehicle is accessible.</span></div>
+        <div><strong>Payment at handover</strong><span>Cash, transfer or check after document verification and signing.</span></div>
+        <div><strong>Clear final terms</strong><span>The final amount follows inspection of the actual vehicle.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section testimonial-stage">
+    <div class="container testimonial-layout">
+      <figure class="quote-featured reveal">
+        <blockquote>“They came before noon, paid me immediately and I did not have to move the SUV.”</blockquote>
+        <figcaption>Charles Owens<span>Owner of a 2015 SUV</span></figcaption>
+      </figure>
+      <div class="quote-secondary">
+        <figure class="reveal"><blockquote>“The offer felt fair, and the process was transparent from the first WhatsApp message.”</blockquote><figcaption>Laura Sofía Torres<span>Owner of an accident sedan</span></figcaption></figure>
+        <figure class="reveal"><blockquote>“They explained the process clearly and respected the price discussed by phone.”</blockquote><figcaption>Richard Lawrence<span>Corporate fleet seller</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section area-stage">
+    <div class="container area-stage-inner reveal">
+      <div><h2>Houston,<br />we come to you.</h2><p>Vehicle purchase and pickup service across Houston and surrounding areas.</p></div>
+      <div class="area-stage-actions"><a class="button button-primary" href="/areas">Check my area</a><a href="tel:+18326222792" data-track="phone_clicked">(832) 622-2792</a></div>
+    </div>
+  </section>
+
+  <section class="section faq-stage">
+    <div class="container faq-layout">
+      <div class="faq-intro reveal"><h2>Straight answers.</h2><p>Offers, towing, payment and documentation without vague promises.</p><a class="button button-link" href="/faq">Read all FAQs</a></div>
+      <div class="faq-list reveal">
+        <details><summary>Do you buy cars that do not run?</summary><p>Yes. Vehicles that do not start or have mechanical or transmission problems are accepted for review.</p></details>
+        <details><summary>Is towing free?</summary><p>Towing is free when the vehicle is accessible and the sale is completed.</p></details>
+        <details><summary>Is the first offer final?</summary><p>No. Web and phone quotes are preliminary. Inspection confirms the final offer.</p></details>
+        <details><summary>When do I get paid?</summary><p>Payment is made at handover and transfer signing, after documentation is verified.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <CTASection title="Get the car off your hands." text="Start with a preliminary offer." />
+</BaseLayout>

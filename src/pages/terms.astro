@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+const schema = { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Terms and Conditions', url: 'https://sellmyjunkcartx.com/terms', isPartOf: { '@type': 'WebSite', name: 'Sell My Junk Car TX', url: 'https://sellmyjunkcartx.com/' } };
+---
+<BaseLayout title="Terms and Conditions | Sell My Junk Car TX" description="Read the vehicle sale, inspection, towing, payment, documentation and seller requirements for Sell My Junk Car TX." canonical="/terms" schema={schema}>
+  <PageHero title="Terms and Conditions" description="Important requirements for ownership, offers, towing, payment and vehicle handover." pageName="Terms and Conditions" />
+  <section class="section"><div class="container content-grid"><nav class="content-nav" aria-label="Terms sections"><a href="#seller">Seller requirements</a><a href="#offers">Offers and inspection</a><a href="#towing">Free towing</a><a href="#payment">Payment</a><a href="#handover">Vehicle handover</a><a href="#jurisdiction">Jurisdiction</a></nav><article class="prose">
+    <h2 id="seller">Seller requirements</h2><p>The seller must be the legal owner of the vehicle or hold valid power or authorization to sell it. The seller must provide the documentation needed to transfer the vehicle and truthful information about its condition.</p>
+    <h2 id="offers">Offers and inspection</h2><p>Quotes provided online or by phone are preliminary. The final offer is confirmed after a visual and technical inspection. The company may modify or cancel an offer when the vehicle's actual condition does not match the information provided.</p>
+    <h2 id="towing">Free towing</h2><p>The vehicle must be accessible to the loading unit. Free towing applies only when the sale is completed. If pickup is canceled for reasons attributable to the seller, the company may decline to reschedule the towing at no charge.</p>
+    <h2 id="payment">Payment</h2><p>Payment is made when the vehicle is handed over and the transfer is signed. Payment may be made by cash, transfer or check. Payment is not delivered until the legitimacy of the documentation has been verified.</p>
+    <h2 id="handover">Vehicle handover</h2><p>The seller should remove personal belongings, toll tags and license plates when appropriate. The company is not responsible for personal items left in the vehicle.</p>
+    <h2 id="jurisdiction">Jurisdiction</h2><p>The supplied terms state that disputes are resolved under the laws applicable in Houston.</p>
+    <div class="notice"><strong>Important:</strong> The commercial phrase “without a title” is not presented as a policy on this site because the terms require valid ownership or authorization and the documentation needed to transfer the vehicle.</div>
+  </article></div></section>
+</BaseLayout>

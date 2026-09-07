@@ -1,0 +1,63 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  image?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.pathname,
+  image = '/assets/img/hero-yard-v2.webp',
+  schema,
+  noindex = false
+} = Astro.props;
+
+const canonicalUrl = new URL(canonical, Astro.site ?? Astro.url.origin);
+const imageUrl = new URL(image, Astro.site ?? Astro.url.origin);
+const graph = Array.isArray(schema) ? { '@context': 'https://schema.org', '@graph': schema } : schema;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="theme-color" content="#111111" />
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    {graph && <script type="application/ld+json" set:html={JSON.stringify(graph)} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <Header currentPath={Astro.url.pathname} />
+    <main id="main"><slot /></main>
+    <Footer />
+    <nav class="mobile-actions" aria-label="Quick actions">
+      <a class="button button-quiet" href="tel:+18326222792" data-track="phone_clicked">Call now</a>
+      <a class="button button-primary" href="/#quote">Get my offer</a>
+    </nav>
+    <script>
+      import '../scripts/site.js';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+from pathlib import Path
+from urllib.request import Request, urlopen
+
+IMAGES = [('01_ojos_variante_1.webp', 'https://content.app-sources.com/s/544134501380735751/uploads/Autos_/ojosrpoom-3681180_1-5058932.png?format=webp'), ('02_vehiculos_estacionados.webp', 'https://content.app-sources.com/s/544134501380735751/uploads/Descargado/pfrm_expl_unsplsh-iHce8QZFQOk-0253009.webp?format=webp'), ('03_interseccion_trafico.webp', 'https://content.app-sources.com/s/544134501380735751/uploads/Descargado/pfrm_expl_unsplsh-TcSweD8mGN0-0140505.webp?format=webp'), ('04_auto_blanco.webp', 'https://content.app-sources.com/s/544134501380735751/thumbnails/640x480/Im%C3%A1genes/pngtree-sporty-white-car-with-modern-design-for-speed-enthusiasts-and-automotive-png-image_15914202_1-9015815.png?format=webp'), ('05_ojos_variante_2.webp', 'https://content.app-sources.com/s/544134501380735751/uploads/Autos_/ojosrpoom-3681180.png?format=webp'), ('06_auto_estacionamiento.webp', 'https://content.app-sources.com/s/544134501380735751/uploads/Descargado/pfrm_expl_unsplsh-zCgCV0id4s0-9018915.webp?format=webp'), ('07_operador_tow_truck.webp', 'https://content.app-sources.com/s/544134501380735751/uploads/Autos_/WhatsApp_Image_2026-02-06_at_9.29.17_AM_1-0384610.jpeg?format=webp'), ('08_firma_venta_auto.webp', 'https://content.app-sources.com/s/544134501380735751/uploads/Autos_/WhatsApp_Image_2026-02-06_at_9.29.17_AM-0384610.jpeg?format=webp'), ('09_auto_en_grua.webp', 'https://content.app-sources.com/s/544134501380735751/uploads/Autos_/WhatsApp_Image_2026-02-06_at_9.29.17_AM_2-0384610.jpeg?format=webp')]
+
+dest = Path(__file__).resolve().parent / "imagenes"
+dest.mkdir(exist_ok=True)
+
+for name, url in IMAGES:
+    print(f"Descargando {name}...")
+    req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urlopen(req, timeout=60) as r:
+        (dest / name).write_bytes(r.read())
+
+print(f"Listo: {dest}")

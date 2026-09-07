@@ -1,0 +1,10 @@
+---
+interface Props { title: string; text: string; secondary?: boolean }
+const { title, text, secondary = true } = Astro.props;
+---
+<section class="section section-compact">
+  <div class="container cta-panel reveal">
+    <div><h2>{title}</h2><p>{text}</p></div>
+    <div class="button-row"><a class="button button-primary" href="/#quote">Get my offer</a>{secondary && <a class="button button-outline" href="tel:+18326222792" data-track="phone_clicked">Call (832) 622-2792</a>}</div>
+  </div>
+</section>
