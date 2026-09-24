@@ -17,6 +17,14 @@ document.querySelectorAll('[data-track]').forEach((element) => element.addEventL
   track(element.dataset.track, { location: element.closest('header, footer, nav')?.tagName.toLowerCase() ?? 'page' });
 }));
 
+// Google Ads "Call Now button" conversion on every phone link; gtag_report_conversion lives in BaseLayout.
+document.addEventListener('click', (event) => {
+  const link = event.target.closest('a[href^="tel:"]');
+  if (!link) return;
+  event.preventDefault();
+  gtag_report_conversion(link.href);
+});
+
 if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
     if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
@@ -87,7 +95,7 @@ if (quoteForm) {
     if (!validate(3)) return;
     const data = new FormData(quoteForm);
     const message = ['Hello, I would like a vehicle offer.', `Vehicle: ${data.get('makeModel')}`, `Year: ${data.get('year')}`, `Mileage: ${data.get('mileage') || 'Not provided'}`, `Condition: ${data.get('condition')}`, `Name: ${data.get('name')}`, `Phone: ${data.get('phone')}`, `Email: ${data.get('email') || 'Not provided'}`].join('\n');
-    quoteForm.querySelector('[data-whatsapp-result]').href = `https://wa.me/18326222792?text=${encodeURIComponent(message)}`;
+    quoteForm.querySelector('[data-whatsapp-result]').href = `https://wa.me/13239497072?text=${encodeURIComponent(message)}`;
     track('quote_step_completed', { step: 3 });
     track('quote_submitted', { vehicle_condition: data.get('condition') });
     quoteForm.querySelector('[data-form-panel]').hidden = true;
@@ -115,5 +123,5 @@ document.querySelectorAll('[data-contact-form]').forEach((form) => form.addEvent
   track('contact_submitted');
   const status = form.querySelector('[data-contact-status]');
   status.hidden = false;
-  status.innerHTML = `Your message is ready. <a href="mailto:Cashforcartx@gmail.com?subject=${subject}&body=${body}">Open your email app to send it</a>, or call <a href="tel:+18326222792">(832) 622-2792</a>.`;
+  status.innerHTML = `Your message is ready. <a href="mailto:Cashforcartx@gmail.com?subject=${subject}&body=${body}">Open your email app to send it</a>, or call <a href="tel:+13239497072">(323) 949-7072</a>.`;
 }));

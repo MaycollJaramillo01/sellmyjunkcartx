@@ -30,6 +30,33 @@ const graph = Array.isArray(schema) ? { '@context': 'https://schema.org', '@grap
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-18061766319"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18061766319');
+
+      // Event snippet for Call Now button conversion page. site.js calls it on every tel: link click.
+      function gtag_report_conversion(url) {
+        var done = false;
+        var callback = function () {
+          if (done) return;
+          done = true;
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18061766319/MWriCNbyscEcEK_dwqRD',
+            'event_callback': callback
+        });
+        // event_callback never fires when an ad blocker stops gtag.js; place the call anyway.
+        setTimeout(callback, 1000);
+        return false;
+      }
+    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
@@ -53,7 +80,7 @@ const graph = Array.isArray(schema) ? { '@context': 'https://schema.org', '@grap
     <main id="main"><slot /></main>
     <Footer />
     <nav class="mobile-actions" aria-label="Quick actions">
-      <a class="button button-quiet" href="tel:+18326222792" data-track="phone_clicked">Call now</a>
+      <a class="button button-quiet" href="tel:+13239497072" data-track="phone_clicked">Call now</a>
       <a class="button button-primary" href="/#quote">Get my offer</a>
     </nav>
     <script>
