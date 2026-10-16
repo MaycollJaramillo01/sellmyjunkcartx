@@ -22,7 +22,9 @@ document.addEventListener('click', (event) => {
   const link = event.target.closest('a[href^="tel:"]');
   if (!link) return;
   event.preventDefault();
-  gtag_report_conversion(link.href);
+  // Google forwarding numbers only rewrite links that show the number, so "Call now" reuses a rewritten one.
+  const forwarded = [...document.querySelectorAll('a[href^="tel:"]')].find((a) => !a.href.endsWith('13239497072'));
+  gtag_report_conversion(forwarded ? forwarded.href : link.href);
 });
 
 if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
