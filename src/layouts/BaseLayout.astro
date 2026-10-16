@@ -37,6 +37,8 @@ const graph = Array.isArray(schema) ? { '@context': 'https://schema.org', '@grap
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-18061766319');
+      // "Llamadas desde el sitio": ad visitors see a Google forwarding number that rings (323) 949-7072.
+      gtag('config', 'AW-18061766319/05HDCMTAk58dEK_dwqRD', { 'phone_conversion_number': '(323) 949-7072' });
 
       // Event snippet for Call Now button conversion page. site.js calls it on every tel: link click.
       function gtag_report_conversion(url) {
